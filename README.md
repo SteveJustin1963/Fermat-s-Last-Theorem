@@ -712,6 +712,11 @@ No solutions found for n = 3 within the given range.
 
 For \(n = 3\) (a known exception with small values), potential solutions like \(a = 3, b = 4, c = 5\) might appear in the results.
 
+
+![image](https://github.com/user-attachments/assets/50620093-6869-4eef-bb8c-be648e7b2638)
+
+
+
 ---
 
 ### Improvements in Visualization:
