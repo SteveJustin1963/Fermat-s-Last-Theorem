@@ -424,6 +424,47 @@ Entropy for (a^n, b^n, c^n) = (0.5000, 0.0000, 0.5000): 1.0000 bits
 ![image](https://github.com/user-attachments/assets/f74c24cb-4b32-47e4-993d-084b8d606c64)
 
 
+The graph indicates that there is no meaningful data being plotted for the entropy analysis. The following points summarize the potential causes:
+
+1. **Lack of Valid Data:**
+   - If no valid integer solutions for \(a^n + b^n = c^n\) exist within the given range of \(a, b, c\) for \(n = 3, 4, 5\), then the entropy computation would not proceed, leaving the graph empty.
+
+2. **Incorrect Loop Execution:**
+   - The loops for generating entropy values may not be populating the `entropyValues` array correctly due to conditions that filter out invalid results.
+
+3. **Improper Plot Indexing:**
+   - The `plot` command indexes over `1:length(entropyValues)`, but if `entropyValues` is empty, the graph will not display any points.
+
+4. **Legend Without Data:**
+   - The legend is still displayed because it’s explicitly defined for each \(n\), even though no points are plotted.
+
+---
+
+### How to Fix This:
+1. **Verify the Conditions:**
+   - Ensure that \(c = \sqrt[n]{a^n + b^n}\) is correctly computed and validated as an integer within the range.
+
+2. **Add Debug Statements:**
+   - Add intermediate print statements to confirm which combinations of \(a, b, c, n\) are being processed and contributing to the entropy values.
+
+3. **Handle Empty Data:**
+   - Before plotting, check if `entropyValues` is non-empty. For example:
+     ```matlab
+     if ~isempty(entropyValues)
+         plot(1:length(entropyValues), entropyValues, '-o', 'DisplayName', sprintf('n = %d', n));
+     else
+         fprintf('No valid data for n = %d\n', n);
+     end
+     ```
+
+4. **Increase Search Range:**
+   - Increase `maxVal` to include a broader range of integers and potentially generate more valid data.
+
+---
+
+
+
+
 ---
 
 ### 4. **Quantum Computation Perspective**
