@@ -20,7 +20,7 @@ Below is a MATLAB implementation of the **graph-theoretic reformulation** for ex
 
 ```matlab
 % Parameters
-maxVal = 50; % Maximum value for a, b, c (you can adjust this)
+maxVal = 50; % Maximum value for a, b, c
 nValues = 3:10; % Range of exponents to test (n > 2)
 
 % Create a directed graph
@@ -41,9 +41,9 @@ for n = nValues
                 % Add edges a -> b -> c weighted by n
                 G = addedge(G, a, b, n);
                 G = addedge(G, b, c, n);
-                
+
                 % Check for a cycle involving a, b, c
-                if hascycles(G)
+                if detectCycle(G)
                     fprintf('Cycle found for n = %d: a = %d, b = %d, c = %d\n', n, a, b, c);
                     foundCycle = true;
                     break;
@@ -67,6 +67,47 @@ end
 figure;
 plot(G, 'Layout', 'force');
 title('Graph Representation of Fermat''s Last Theorem');
+
+% Function to detect cycles
+function hasCycle = detectCycle(graph)
+    hasCycle = false;
+    numNodes = numnodes(graph);
+    visited = false(1, numNodes);
+    recursionStack = false(1, numNodes);
+
+    for node = 1:numNodes
+        if ~visited(node)
+            if dfs(graph, node, visited, recursionStack)
+                hasCycle = true;
+                return;
+            end
+        end
+    end
+end
+
+% Helper DFS function for cycle detection
+function cycleFound = dfs(graph, node, visited, recursionStack)
+    visited(node) = true;
+    recursionStack(node) = true;
+
+    neighbors = successors(graph, node);
+    for i = 1:length(neighbors)
+        neighbor = neighbors(i);
+        if ~visited(neighbor)
+            if dfs(graph, neighbor, visited, recursionStack)
+                cycleFound = true;
+                return;
+            end
+        elseif recursionStack(neighbor)
+            cycleFound = true;
+            return;
+        end
+    end
+
+    recursionStack(node) = false;
+    cycleFound = false;
+end
+
 ```
 
 ### Key Features of the Code:
