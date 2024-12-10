@@ -88,6 +88,9 @@ title('Graph Representation of Fermat''s Last Theorem');
 - **`nValues`**: Adjust to test specific exponent values.
 - **Cycle Detection Logic**: Extend this to analyze specific cycles or structure within the graph.
 
+
+
+```
  >>  
 Testing for n = 3...
 Testing for n = 4...
@@ -97,6 +100,8 @@ Testing for n = 7...
 Testing for n = 8...
 Testing for n = 9...
 Cycle found for n = 9: a = 1, b = 49, c = 49
+```
+
 
 ![image](https://github.com/user-attachments/assets/568b91e1-8326-4a02-adf4-2c628f217e9b)
 
@@ -201,6 +206,7 @@ The plot shows the curves \(x^n + y^n = z^n\) for \(n = 3, 4, 5\), providing a v
 - Add a modular residue check to investigate modular properties of the equation.
 - Expand the visualization to 3D for higher-dimensional intuition.
 
+```
 >>  
 Testing for n = 3...
 Testing for n = 4...
@@ -210,6 +216,7 @@ Testing for n = 7...
 Testing for n = 8...
 Testing for n = 9...
 Lattice point found for n = 9: a = 1, b = 49, c = 49
+```
 
 ![image](https://github.com/user-attachments/assets/7029c666-558a-4025-b218-f1239de4133d)
 
@@ -333,7 +340,7 @@ hold off;
 - **Advanced Visualization:** Extend the visualization to show entropy trends for higher dimensions.
 
 
- 
+``` 
 >>  
 Testing for n = 3...
 Testing for n = 4...
@@ -371,7 +378,7 @@ Potential solution found for n = 10: a = 35, b = 1, c = 35
 Entropy for (a^n, b^n, c^n) = (0.5000, 0.0000, 0.5000): 1.0000 bits
 Potential solution found for n = 10: a = 36, b = 1, c = 36
 Entropy for (a^n, b^n, c^n) = (0.5000, 0.0000, 0.5000): 1.0000 bits
-
+```
 
 ![image](https://github.com/user-attachments/assets/f74c24cb-4b32-47e4-993d-084b8d606c64)
 
@@ -865,6 +872,9 @@ hold off;
 - **Overlay Modular Constraints:** Add modular constraints for additional theoretical insight.
 
 
+
+
+```
 Model Accuracy: 100.00%
 >> PrimesEntanglement
 Model Accuracy: 100.00%
@@ -872,7 +882,7 @@ Model Accuracy: 100.00%
 Analyzing for n = 3...
 Analyzing for n = 4...
 Analyzing for n = 5...
-
+```
 
 ![image](https://github.com/user-attachments/assets/ff75948f-e69b-4d88-a12a-bb304458eb76)
 
